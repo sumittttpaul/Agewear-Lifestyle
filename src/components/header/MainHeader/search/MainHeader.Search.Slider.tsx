@@ -1,40 +1,16 @@
 import { motion, Variants } from 'framer-motion';
-import dynamic from 'next/dynamic';
 import React, { FC, useEffect, useState } from 'react';
-import useScreenheight from '../../../../algorithms/ScreenHeightDetection';
 import {
   StoreDiscoverCurationSearch,
   StoreDiscoverExploreSearch,
   StoreDiscoverPopularSearch,
 } from '../../../../contents/store/discover/Store.Discover.Search';
-import { MainHeaderSearchCurationProps } from './MainHeader.Search.Curation';
-import { MainHeaderSearchPopularProps } from './MainHeader.Search.Popular';
-import { MainHeaderSearchExploreProps } from './MainHeader.Search.Explore';
+import { MainHeaderSearchCuration } from './MainHeader.Search.Curation';
+import { MainHeaderSearchPopular } from './MainHeader.Search.Popular';
+import { MainHeaderSearchExplore } from './MainHeader.Search.Explore';
 import { MainHeaderSearchExit } from './MainHeader.Search.Exit';
 
-const MainHeaderSearchExplore = dynamic<MainHeaderSearchExploreProps>(
-  () =>
-    import('./MainHeader.Search.Explore').then(
-      (x) => x.MainHeaderSearchExplore
-    ),
-  { ssr: true }
-);
-const MainHeaderSearchPopular = dynamic<MainHeaderSearchPopularProps>(
-  () =>
-    import('./MainHeader.Search.Popular').then(
-      (x) => x.MainHeaderSearchPopular
-    ),
-  { ssr: true }
-);
-const MainHeaderSearchCuration = dynamic<MainHeaderSearchCurationProps>(
-  () =>
-    import('./MainHeader.Search.Curation').then(
-      (x) => x.MainHeaderSearchCuration
-    ),
-  { ssr: true }
-);
-
-export interface MainHeaderSearchSliderProps {
+export interface MainHeaderSearchSliderDesktopProps {
   open: boolean;
   onClose: () => void;
 }
@@ -72,14 +48,13 @@ const LiVariants: Variants = {
 
 /**
  * @author
- * @function @MainHeaderSearchSlider
+ * @function @MainHeaderSearchSliderDesktop
  **/
 
-export const MainHeaderSearchSlider: FC<MainHeaderSearchSliderProps> = (
-  props
-) => {
+export const MainHeaderSearchSliderDesktop: FC<
+  MainHeaderSearchSliderDesktopProps
+> = (props) => {
   const [Slider, setSlider] = useState('closed');
-  const { LargeHeight, MediumHeight, SmallHeight } = useScreenheight();
 
   useEffect(() => {
     if (props.open) {
@@ -110,34 +85,24 @@ export const MainHeaderSearchSlider: FC<MainHeaderSearchSliderProps> = (
             className="space-y-5 pt-3 flex flex-col w-full h-full max-w-[1440px] mx-auto"
           >
             <div className="w-full flex flex-col sm:flex-row sm:justify-between overflow-x-hidden">
-              <div
-                className={`${
-                  LargeHeight ? 'mt-5 sm:mt-0' : ''
-                } order-2 sm:order-1 w-full sm:w-[50%] flex overflow-y-hidden`}
-              >
-                {LargeHeight && (
-                  <motion.div variants={LiVariants} className="w-full flex">
-                    <MainHeaderSearchExplore
-                      ContentArray={StoreDiscoverExploreSearch}
-                    />
-                  </motion.div>
-                )}
+              <div className="mt-5 order-2 sm:order-1 w-full sm:w-[50%] flex overflow-y-hidden">
+                <motion.div variants={LiVariants} className="w-full flex">
+                  <MainHeaderSearchExplore
+                    ContentArray={StoreDiscoverExploreSearch}
+                  />
+                </motion.div>
               </div>
               <div className="order-1 sm:order-2 w-full sm:w-[50%] space-y-5 flex flex-col overflow-y-hidden">
-                {SmallHeight && (
-                  <motion.div variants={LiVariants} className="w-full flex">
-                    <MainHeaderSearchPopular
-                      ContentArray={StoreDiscoverPopularSearch}
-                    />
-                  </motion.div>
-                )}
-                {MediumHeight && (
-                  <motion.div variants={LiVariants} className="w-full flex">
-                    <MainHeaderSearchCuration
-                      ContentArray={StoreDiscoverCurationSearch}
-                    />
-                  </motion.div>
-                )}
+                <motion.div variants={LiVariants} className="w-full flex">
+                  <MainHeaderSearchPopular
+                    ContentArray={StoreDiscoverPopularSearch}
+                  />
+                </motion.div>
+                <motion.div variants={LiVariants} className="w-full flex">
+                  <MainHeaderSearchCuration
+                    ContentArray={StoreDiscoverCurationSearch}
+                  />
+                </motion.div>
               </div>
             </div>
             <motion.div

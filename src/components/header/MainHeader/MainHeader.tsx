@@ -7,13 +7,21 @@ import { MainHeaderCartButton } from '../../button/header/MainHeader.CartButton'
 import { MainHeaderSearchButton } from '../../button/header/MainHeader.SearchButton';
 import { MainHeaderWishlistButton } from '../../button/header/MainHeader.WishlistButton';
 import { MainHeaderNav } from './assets/MainHeader.Nav';
-import { MainHeaderSearchSliderProps } from './search/MainHeader.Search.Slider';
+import { MainHeaderSearchSliderProps } from './search/MainHeader.Search.Slider.MultiScreen';
 import { MainHeaderSliderProps } from './assets/MainHeader.Slider';
+import useScreenSize from '../../../algorithms/ScreenSizeDetection';
 
-const MainHeaderSearchSlider = dynamic<MainHeaderSearchSliderProps>(
+const MainHeaderSearchSliderMobile = dynamic<MainHeaderSearchSliderProps>(
+  () =>
+    import('./search/MainHeader.Search.Slider.MultiScreen').then(
+      (x) => x.MainHeaderSearchSliderMobile
+    ),
+  { ssr: true }
+);
+const MainHeaderSearchSliderDesktop = dynamic<MainHeaderSearchSliderProps>(
   () =>
     import('./search/MainHeader.Search.Slider').then(
-      (x) => x.MainHeaderSearchSlider
+      (x) => x.MainHeaderSearchSliderDesktop
     ),
   { ssr: true }
 );
@@ -33,11 +41,11 @@ export interface MainHeaderProps {
  **/
 
 export const MainHeader: FC<MainHeaderProps> = (props) => {
+  const { LargeScreen, MediumScreen, SmallScreen } = useScreenSize();
   const [NavSliderOpen, setNavSliderOpen] = useCycle(false, true);
   const [SearchSliderOpen, setSearchSliderOpen] = useState(false);
   const [SearchSliderAnimation, setSearchSliderAnimation] = useState(false);
   const ContainerRef = useRef<HTMLDivElement>(null);
-
   return (
     <>
       <div className="w-full h-[12px] min-h-[12px]" />
@@ -108,10 +116,20 @@ export const MainHeader: FC<MainHeaderProps> = (props) => {
           Value={props.Page}
           onValueChange={props.setPage}
         />
-        <MainHeaderSearchSlider
-          open={SearchSliderOpen}
-          onClose={() => setSearchSliderOpen(false)}
-        />
+        {SmallScreen && (
+          <MainHeaderSearchSliderMobile
+            open={SearchSliderOpen}
+            onClose={() => setSearchSliderOpen(false)}
+          />
+        )}
+        {LargeScreen || MediumScreen ? (
+          <MainHeaderSearchSliderDesktop
+            open={SearchSliderOpen}
+            onClose={() => setSearchSliderOpen(false)}
+          />
+        ) : (
+          <></>
+        )}
       </div>
       <div className="w-full h-[12px] min-h-[12px]" />
     </>
