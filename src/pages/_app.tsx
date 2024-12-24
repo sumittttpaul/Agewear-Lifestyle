@@ -45,9 +45,15 @@ function MyApp(props: AppPropsWithLayout, cache: EmotionCacheProps) {
         <Provider store={store}>
           <StateProvider>
             <Head>
+              <title>Agewear Lifestyle • Sumeet Kumar Paul</title>
               <meta
                 name="viewport"
                 content="initial-scale=1, width=device-width"
+              />
+              <meta
+                name="description"
+                content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
+                key="desc"
               />
             </Head>
             <ThemeProvider theme={theme}>

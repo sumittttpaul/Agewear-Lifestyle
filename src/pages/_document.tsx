@@ -12,9 +12,9 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="theme-color" content="#2a2a2a" />
           <link rel="shortcut icon" href="/favicon.ico" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+          <meta
+            name="description"
+            content="Latest fashion trends in one place • Sumeet Kumar Paul"
           />
           {(this.props as any).emotionStyleTags}
         </Head>
