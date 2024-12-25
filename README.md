@@ -46,10 +46,10 @@ These are all the framework and libraries that has been used to build this proje
 21. Styled Components
 22. Dev - Prettier, Postcss, Eslint, Autoprefixer, Cross Env, Next bundle Analyzer
 ```
+ 
+## Functionalities Implemented
 
-## Functionality
-
-These are all the functionality that has been implemented in this project :-
+These are all the functionalities that has been implemented in this project :-
 
 ```bash
 1. Search Box
