@@ -45,3 +45,7 @@ These are all the framework and libraries that has been used to build this proje
 20. Motion
 21. Styled Components
 ```
+
+## Components Used
+
+All the components - You can find in components folder.
