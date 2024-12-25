@@ -44,6 +44,7 @@ These are all the framework and libraries that has been used to build this proje
 19. CryptoJS
 20. Motion
 21. Styled Components
+22. Dev - Prettier, Postcss, Eslint, Autoprefixer, Cross Env, Next bundle Analyzer
 ```
 
 ## Components Used
