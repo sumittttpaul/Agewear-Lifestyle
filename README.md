@@ -1,6 +1,6 @@
 Hello, I am Sumeet Kumar Paul and here is Fashion Ecommerce Store, so let's get started.
 
-## Pages
+## Getting Started
 
 This ecommerce store contains following sections :-
 
@@ -18,9 +18,9 @@ This ecommerce store contains following sections :-
 11. Cart
 ```
 
-## Tech Stack
+## Tech and Libraries Used
 
-This ecommerce store contains following tect stacks :-
+These are all the framework and libraries that has been used to build this project :-
 
 ```bash
 1. NextJS
@@ -45,5 +45,3 @@ This ecommerce store contains following tect stacks :-
 20. Motion
 21. Styled Components
 ```
-
-
