@@ -22,7 +22,7 @@ const PageHeaderUserButtonMenu = dynamic<PageHeaderUserButtonMenuProps>(
     import('./PageHeader.UserButton.Menu').then(
       (x) => x.PageHeaderUserButtonMenu
     ),
-  { ssr: true }
+  { ssr: false }
 );
 
 interface IProps {}

@@ -18,7 +18,7 @@ const DiscoverSliderDesktop = dynamic<DiscoverSliderDesktopAndTabletProps>(
     ),
   {
     loading: () => <LoadingDiscoverSlider />,
-    ssr: true,
+    ssr: false,
   }
 );
 const DiscoverSliderMobile = dynamic<DiscoverSliderMobileProps>(
@@ -28,7 +28,7 @@ const DiscoverSliderMobile = dynamic<DiscoverSliderMobileProps>(
     ),
   {
     loading: () => <LoadingDiscoverSlider />,
-    ssr: true,
+    ssr: false,
   }
 );
 

@@ -9,25 +9,17 @@ import { MainHeaderWishlistButton } from '../../button/header/MainHeader.Wishlis
 import { MainHeaderNav } from './assets/MainHeader.Nav';
 import { MainHeaderSearchSliderProps } from './search/MainHeader.Search.Slider.MultiScreen';
 import { MainHeaderSliderProps } from './assets/MainHeader.Slider';
-import useScreenSize from '../../../algorithms/ScreenSizeDetection';
 
-const MainHeaderSearchSliderMobile = dynamic<MainHeaderSearchSliderProps>(
+const MainHeaderSearchSlider = dynamic<MainHeaderSearchSliderProps>(
   () =>
     import('./search/MainHeader.Search.Slider.MultiScreen').then(
-      (x) => x.MainHeaderSearchSliderMobile
+      (x) => x.MainHeaderSearchSlider
     ),
-  { ssr: true }
-);
-const MainHeaderSearchSliderDesktop = dynamic<MainHeaderSearchSliderProps>(
-  () =>
-    import('./search/MainHeader.Search.Slider').then(
-      (x) => x.MainHeaderSearchSliderDesktop
-    ),
-  { ssr: true }
+  { ssr: false }
 );
 const MainHeaderSlider = dynamic<MainHeaderSliderProps>(
   () => import('./assets/MainHeader.Slider').then((x) => x.MainHeaderSlider),
-  { ssr: true }
+  { ssr: false }
 );
 
 export interface MainHeaderProps {
@@ -41,7 +33,6 @@ export interface MainHeaderProps {
  **/
 
 export const MainHeader: FC<MainHeaderProps> = (props) => {
-  const { LargeScreen, MediumScreen, SmallScreen } = useScreenSize();
   const [NavSliderOpen, setNavSliderOpen] = useCycle(false, true);
   const [SearchSliderOpen, setSearchSliderOpen] = useState(false);
   const [SearchSliderAnimation, setSearchSliderAnimation] = useState(false);
@@ -56,7 +47,7 @@ export const MainHeader: FC<MainHeaderProps> = (props) => {
         } ${'flex flex-col z-[999] sticky-top items-center box-border w-full h-[78px] backdrop-blur-[8px]'}`}
       >
         <div className="flex relative box-border w-full max-w-[1440px] mx-auto h-full justify-between items-center py-3 sm:px-5 px-3 overflow-x-hidden">
-          <div className="flex relative w-full md-900:space-x-6 items-center">
+          <div className="relative flex items-center w-full md-900:space-x-6">
             <div
               className={`${
                 SearchSliderAnimation ? 'w-full' : 'w-[100px] sm:w-[160px]'
@@ -116,20 +107,10 @@ export const MainHeader: FC<MainHeaderProps> = (props) => {
           Value={props.Page}
           onValueChange={props.setPage}
         />
-        {SmallScreen && (
-          <MainHeaderSearchSliderMobile
-            open={SearchSliderOpen}
-            onClose={() => setSearchSliderOpen(false)}
-          />
-        )}
-        {LargeScreen || MediumScreen ? (
-          <MainHeaderSearchSliderDesktop
-            open={SearchSliderOpen}
-            onClose={() => setSearchSliderOpen(false)}
-          />
-        ) : (
-          <></>
-        )}
+        <MainHeaderSearchSlider
+          open={SearchSliderOpen}
+          onClose={() => setSearchSliderOpen(false)}
+        />
       </div>
       <div className="w-full h-[12px] min-h-[12px]" />
     </>

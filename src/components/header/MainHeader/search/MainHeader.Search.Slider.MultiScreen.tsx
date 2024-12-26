@@ -59,46 +59,7 @@ const LiVariants: Variants = {
   },
 };
 
-export const MainHeaderSearchSliderMobile: FC<MainHeaderSearchSliderProps> = (
-  props
-) => {
-  return (
-    <div className="bg-transparent absolute left-0 top-full w-full">
-      <div className={Main}>
-        <div className={Main2}>
-          <div className={Child1}>
-            <div className={Child1Super1}>
-              <div className={Child1SuperContainer}>
-                <MainHeaderSearchExplore
-                  ContentArray={StoreDiscoverExploreSearch}
-                />
-              </div>
-            </div>
-            <div className={Child1Super2}>
-              <div className={Child1SuperContainer}>
-                <MainHeaderSearchPopular
-                  ContentArray={StoreDiscoverPopularSearch}
-                />
-              </div>
-              <div className={Child1SuperContainer}>
-                <MainHeaderSearchCuration
-                  ContentArray={StoreDiscoverCurationSearch}
-                />
-              </div>
-            </div>
-          </div>
-          <div className={Child2}>
-            <MainHeaderSearchExit
-              onClick={() => setTimeout(() => props.onClose(), 100)}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const MainHeaderSearchSliderDesktop: FC<MainHeaderSearchSliderProps> = (
+export const MainHeaderSearchSlider: FC<MainHeaderSearchSliderProps> = (
   props
 ) => {
   const [Slider, setSlider] = useState('closed');
@@ -116,13 +77,13 @@ export const MainHeaderSearchSliderDesktop: FC<MainHeaderSearchSliderProps> = (
       {props.open ? (
         <div
           onClick={props.onClose}
-          className="absolute h-screen w-full top-full bg-black backdrop-blur-md opacity-75 left-0"
+          className="absolute left-0 w-full h-screen bg-black opacity-75 top-full backdrop-blur-md"
         />
       ) : (
         <></>
       )}
       <motion.div
-        className="bg-transparent absolute left-0 top-full w-full"
+        className="absolute left-0 w-full bg-transparent top-full"
         animate={Slider}
         variants={SliderVariant}
       >

@@ -16,7 +16,7 @@ const DiscoverTilesDesktop = dynamic<DiscoverTilesDesktopProps>(
     ),
   {
     loading: () => <LoadingDiscoverTiles />,
-    ssr: true,
+    ssr: false,
   }
 );
 const DiscoverTilesTablet = dynamic<DiscoverTilesTabletProps>(
@@ -26,7 +26,7 @@ const DiscoverTilesTablet = dynamic<DiscoverTilesTabletProps>(
     ),
   {
     loading: () => <LoadingDiscoverTiles />,
-    ssr: true,
+    ssr: false,
   }
 );
 const DiscoverTilesMobile = dynamic<DiscoverTilesMobileProps>(
@@ -36,7 +36,7 @@ const DiscoverTilesMobile = dynamic<DiscoverTilesMobileProps>(
     ),
   {
     loading: () => <LoadingDiscoverTiles />,
-    ssr: true,
+    ssr: false,
   }
 );
 

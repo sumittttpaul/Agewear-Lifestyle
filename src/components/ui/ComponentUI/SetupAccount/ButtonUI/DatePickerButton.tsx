@@ -10,7 +10,7 @@ const DatePickerDialogUI = dynamic<DatePickerDialogUIProps>(
     import('../DatePickerUI/DatePickerDialogUI').then(
       (x) => x.DatePickerDialogUI
     ),
-  { ssr: true }
+  { ssr: false }
 );
 
 interface IProps {

@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic';
 
 const PageHeaderSlider = dynamic<PageHeaderSliderProps>(
   () => import('./assets/PageHeaderSlider').then((x) => x.PageHeaderSlider),
-  { ssr: true }
+  { ssr: false }
 );
 
 export interface PageHeaderProps {
