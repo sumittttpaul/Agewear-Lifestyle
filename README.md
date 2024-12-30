@@ -2,6 +2,8 @@
 
 Hello, I am Sumeet Kumar Paul and here is Fashion Ecommerce Store, so let's get started.
 
+Watch the video to learn about all the features of this project: [video/agewearlifestyle](https://drive.google.com/file/d/1wihGPn4A9Q76q_FqC5SBtMjbKjfxsOv4/view?usp=sharing)
+
 ## Getting Started
 
 This ecommerce store contains following sections :-
