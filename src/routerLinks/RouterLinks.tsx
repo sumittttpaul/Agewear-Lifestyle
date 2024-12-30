@@ -15,11 +15,11 @@ export const FAQ_Link = '#';
 export const Help_Link = '#';
 export const About_Us_Link = '#';
 //
-export const Discover_Link = '/store';
-export const Offers_Link = '/store/offers';
-export const Collections_Link = '/store/collections';
-export const Wishlist_Link = '/store/wishlist';
-export const Cart_Link = '/store/cart';
+export const Discover_Link = Home_Link + '#';
+export const Offers_Link = Home_Link + '#';
+export const Collections_Link = Home_Link + '#';
+export const Wishlist_Link = Home_Link + '#';
+export const Cart_Link = Home_Link + '#';
 //
 export const Contact_Us_Link = '#';
 export const Track_Order_Link = '#';
