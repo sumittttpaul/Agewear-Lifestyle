@@ -1,3 +1,5 @@
+![agewearlifestyle](https://github.com/user-attachments/assets/4431be35-718f-4aaa-988b-3b71dbd53a9a)
+
 Hello, I am Sumeet Kumar Paul and here is Fashion Ecommerce Store, so let's get started.
 
 ## Getting Started
