@@ -3,14 +3,14 @@ import React, { FC, ReactNode } from 'react';
 import { PageContainerDark } from '../container/PageContainerDark';
 import { PageFooterProps } from '../footer/PageFooter/PageFooter';
 import { PageHeaderProps } from '../header/PageHeader/PageHeader';
-import { LoadingPageheader } from '../loader/LoadingSkeleton';
+import { LoadingPageHeader } from '../loader/LoadingSkeleton';
 // import { PageFooter } from '../footer/PageFooter/PageFooter';
 // import { PageHeader } from '../header/PageHeader/PageHeader';
 
 const PageHeader = dynamic<PageHeaderProps>(
   () => import('../header/PageHeader/PageHeader').then((x) => x.PageHeader),
   {
-    loading: () => <LoadingPageheader />,
+    loading: () => <LoadingPageHeader />,
     ssr: false,
   }
 );

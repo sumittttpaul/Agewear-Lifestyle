@@ -3,7 +3,7 @@ import { PageHeaderLogo } from '../logo/CompanyLogo';
 
 const MainHeaderColor = 'grey.900';
 
-export function LoadingPageheader() {
+export function LoadingPageHeader() {
   return (
     <div className="w-full h-[50px] bg-[#2a2a2a]">
       <div className="w-full h-full max-w-[1540px] mx-auto flex justify-center sm:justify-start">
@@ -13,7 +13,7 @@ export function LoadingPageheader() {
   );
 }
 
-export function LoadingMainheader() {
+export function LoadingMainHeader() {
   return (
     <>
       {/* Large Screen */}
